@@ -167,7 +167,7 @@ def update_scParams(sc_dict=None, instance=None, **kwargs):
             imaginary distances or single value for both.
             Accepts: (float, float) or float 
              
-        grid.minor.enable: True
+        grid.minor.enable: False
             Enables the minor grid.
             Accepts: boolean
             
@@ -308,27 +308,19 @@ class SmithAxes(Axes):
     _ax_lim_y = _inf
 
     # default parameter for matplotlib
-    _rcDefaultParams = {"font.size": 15,
-                   "legend.fontsize": 16,
+    _rcDefaultParams = {"font.size": 12,
+                   "legend.fontsize": 12,
+                   "xtick.labelsize": 12,
+                   "ytick.labelsize": 12,
                    "lines.linestyle": "-",
                    "lines.linewidth": 2,
-                   "lines.markersize": 8,
+                   "lines.markersize": 7,
                    "lines.markeredgewidth": 1,
-                   "axes.color_cycle": ["FF4848", # red 
-                                        "31B404", # blue
-                                        "0276FD", # green
-                                        "FFB428", # orange
-                                        "01C5BB" , # teal
-                                        "CD69C9",  # pink
-                                        "0.65", # dark grey
-                                        "0.45"], # light grey
-                   "xtick.labelsize": 14,
                    "xtick.major.pad": 0,
-                   "ytick.labelsize": 15,
-                   "ytick.major.pad": 10,
+                   "ytick.major.pad": 4,
                    "legend.fancybox": False,
-                   "legend.shadow": True,
-                   "legend.markerscale": 0.75,
+                   "legend.shadow": False,
+                   "legend.markerscale": 1,
                    "legend.numpoints": 3,
                    "axes.axisbelow": True}
 
@@ -337,7 +329,7 @@ class SmithAxes(Axes):
                 "plot.hacklines": True,
                 "plot.rotatemarker": True,
                 "plot.startmarker": "s",
-                "plot.marker": "o",
+                "plot.marker": "",
                 "plot.endmarker": "^",
                    "grid.zorder" : 1,
                    "grid.locator.precision": 2,
@@ -349,7 +341,7 @@ class SmithAxes(Axes):
                    "grid.major.ymaxn": 16,
                    "grid.major.fancy": True,
                    "grid.major.fancy.threshold": (100, 50),
-                   "grid.minor.enable": True,
+                   "grid.minor.enable": False,
                    "grid.minor.linestyle": ":",
                    "grid.minor.capstyle": str("round"),
                    "grid.minor.dashes": [0.2, 2],
@@ -361,7 +353,7 @@ class SmithAxes(Axes):
                    "grid.minor.fancy.dividers": [1, 2, 3, 5, 10, 20],
                    "grid.minor.fancy.threshold": 25,
                    "path.default_interpolation": 75,
-                   "axes.xlabel.rotation": 90,
+                   "axes.xlabel.rotation": 0,
                    "axes.xlabel.fancybox": {"boxstyle": "round4,pad=0.4",
                                             "facecolor": 'w',
                                             "edgecolor": "w",
@@ -371,7 +363,7 @@ class SmithAxes(Axes):
                    "axes.scale": 1,
                    "axes.norm": None,
                    "symbol.infinity": "\u221E",
-                   "symbol.infinity.correction": 7}
+                   "symbol.infinity.correction": 5}
 
     def __init__(self, *args, **kwargs):
         '''
