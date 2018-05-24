@@ -325,12 +325,12 @@ class SmithAxes(Axes):
                    "axes.axisbelow": True}
 
     scDefaultParams = {"init.updaterc": True,
-                "plot.zorder": 5,
-                "plot.hacklines": True,
-                "plot.rotatemarker": True,
-                "plot.startmarker": "s",
-                "plot.marker": "",
-                "plot.endmarker": "^",
+                   "plot.zorder": 5,
+                   "plot.hacklines": True,
+                   "plot.rotatemarker": True,
+                   "plot.startmarker": "s",
+                   "plot.marker": "",
+                   "plot.endmarker": "^",
                    "grid.zorder" : 1,
                    "grid.locator.precision": 2,
                    "grid.major.enable": True,
@@ -1267,6 +1267,11 @@ class SmithAxes(Axes):
             steps = path._interpolation_steps
 
             x, y = np.array(list(zip(*vertices)))
+
+            # FIXME: inf_circle stopped working in newer versions of
+            # matplotlib. As a workaround, a high integer is used instead.
+            if steps == 'inf_circle':
+                steps = 100
 
             if len(vertices) > 1 and not isinstance(steps, int):
                 if steps == 'inf_circle':
